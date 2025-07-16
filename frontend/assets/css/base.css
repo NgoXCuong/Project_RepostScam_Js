@@ -1,0 +1,16 @@
+:root {
+  --bgColor: #020617;
+  --bgColor2: rgba(18, 22, 39, 0.8);
+  --bgColor3: rgba(255, 255, 255, 0.85);
+  --textColor: #ffffff;
+  --subTextColor: #94a3b8;
+  --gradientColor: linear-gradient(270deg, #d9c4af -70, 15%, #ffffff 97, 57%);
+  --textBtnColor: #090909;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  font-size: 16px;
+}
