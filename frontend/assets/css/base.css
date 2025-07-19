@@ -33,6 +33,15 @@ body {
   border: none;
   outline: none;
 }
+/* Title style */
+.title {
+  font-size: 30px;
+  font-weight: 800;
+  /* color: transparent; */
+  background-color: var(--gradientColor);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
 
 /* Header Style */
 .header {
