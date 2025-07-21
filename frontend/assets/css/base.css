@@ -2,6 +2,7 @@
   --bgColor: #020617;
   --bgColor2: rgba(18, 22, 39, 0.8);
   --bgColor3: rgba(71, 71, 71, 0.85);
+  --bgColor4: rgba(18, 22, 39, 1);
   --textColor: #ffffff;
   --subTextColor: #94a3b8;
   --gradientColor: linear-gradient(270.33deg, #d9c4af -70.15%, #ffffff 97.57%);
@@ -13,6 +14,7 @@ body {
   background-color: var(--bgColor);
   color: var(--textColor);
   font-size: 16px;
+  isolation: isolate;
 }
 
 .container {
@@ -20,6 +22,33 @@ body {
   width: 100%;
   margin-inline: auto;
   padding-bottom: 100px;
+}
+
+/* Circle style */
+.effect-circle1 {
+  width: 530px;
+  height: 530px;
+  border-radius: 100%;
+  filter: blur(250px);
+  background-color: rgba(27, 29, 48, 1);
+  position: fixed;
+  top: 4px;
+  left: -57px;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.effect-circle1 {
+  width: 530px;
+  height: 530px;
+  border-radius: 100%;
+  filter: blur(250px);
+  background-color: rgba(27, 29, 48, 1);
+  position: fixed;
+  bottom: 4px;
+  right: -57px;
+  z-index: -1;
+  opacity: 0.6;
 }
 
 /* Btn Style */
