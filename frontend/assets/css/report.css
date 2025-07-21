@@ -50,14 +50,14 @@
 .form__group-wrap {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 25px;
   margin-bottom: 24px;
 }
 
 .form__group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   flex: 1;
 }
 
@@ -84,4 +84,5 @@
   resize: none;
   height: 64px;
   overflow: hidden;
+  margin-top: 10px;
 }
