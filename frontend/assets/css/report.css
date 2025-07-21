@@ -35,6 +35,7 @@
 }
 
 .form__heading {
+  display: flex;
   font-size: 30px;
   font-weight: 800;
   color: transparent;
@@ -42,6 +43,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   align-items: center;
+  justify-content: center;
   margin-bottom: 16px;
 }
 
