@@ -124,6 +124,89 @@
           placeholder="Nội dung tố cáo"
         ></textarea>
       </div>
+      <div class="form__upload-wrap">
+        <div class="form__image-preview">
+          <div class="form__preview-remove">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <img src="./assets/img/NC.png" alt="" class="form__preview-img" />
+        </div>
+        <div class="form__upload-group">
+          <label for="uploadImage" class="form__upload"
+            ><input
+              type="file"
+              name="images"
+              id="uploadImage"
+              class="form__upload-input"
+              accept="image/*"
+              multiple
+              hidden
+            />
+            <img
+              src="./assets/img/Image.svg"
+              alt=""
+              class="form__upload-icon"
+            />
+            <span class="form__upload-text">Chọn ảnh</span>
+          </label>
+        </div>
+      </div>
+
+      <h2 class="form__heading">Xác thực người dùng tố cáo</h2>
+      <div class="form__group-wrap">
+        <div class="form__group">
+          <label for="nameUser" class="form__title"
+            >Họ và tên <span>*</span></label
+          >
+          <input
+            type="text"
+            name="nameUser"
+            id="nameUser"
+            class="form__input"
+            placeholder="Nhập họ và tên"
+          />
+        </div>
+        <div class="form__group">
+          <label for="phoneUser" class="form__title"
+            >Liên hệ <span>*</span></label
+          >
+          <input
+            type="text"
+            name="phoneUser"
+            id="phoneUser"
+            class="form__input"
+            placeholder="Nhập số điện thoại"
+          />
+        </div>
+      </div>
+      <div class="form__action-group">
+        <div class="form__action-item">
+          <input
+            type="radio"
+            name="option"
+            id="option-1"
+            value="Tôi là nạn nhân"
+            class="form__radio-input"
+            checked
+          />
+          <label for="option-1" class="form__title-radio"
+            >Tôi là nạn nhân</label
+          >
+        </div>
+        <div class="form__action-item">
+          <input
+            type="radio"
+            name="option"
+            id="option-2"
+            value="Tôi chỉ đăng hộ"
+            class="form__radio-input"
+          />
+          <label for="option-2" class="form__title-radio"
+            >Tôi chỉ đăng hộ</label
+          >
+        </div>
+      </div>
+      <button type="submit" class="btn form-report__btn">Gửi tố cáo</button>
     </form>
 
     <!-- JS -->
