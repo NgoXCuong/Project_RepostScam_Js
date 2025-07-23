@@ -1,9 +1,29 @@
 // === VALIABLES ===
 const apiKey = "aeb2298dd49b3aa479ae2f6e0d6fcbf2";
-const enpoin = "https://68803af6f1dcae717b615ab0.mockapi.io/scammers";
+const endpoint = "https://68803af6f1dcae717b615ab0.mockapi.io/scammers";
 const uploadImageInput = document.getElementById("uploadImage");
 let arrImg = [];
 const formUploadWrap = document.querySelector(".form__upload-wrap");
+const phoneScammerInput = document.getElementById("phoneScammer");
+const numberScammerInput = document.getElementById("numberScammer");
+const phoneUserInput = document.getElementById("phoneUser");
+const constReportInput = document.getElementById("contentReport");
+
+// === HANDLE INPUT ONLE NUMBER ===
+phoneScammerInput.addEventListener("keypress", handleInputOnlyNunber);
+numberScammerInput.addEventListener("keypress", handleInputOnlyNunber);
+phoneUserInput.addEventListener("keypress", handleInputOnlyNunber);
+function handleInputOnlyNunber(e) {
+  if (e.charCode < 48 || e.charCode > 57) {
+    e.preventDefault();
+  }
+}
+
+// === HANDLE CONTENT REPORT INPUT ===
+constReportInput.addEventListener("input", (e) => {
+  e.target.style.height = "auto";
+  e.target.style.height = `${e.target.scrollHeight}px`;
+});
 
 // === HANDLE UPLOAD IMAGE ===
 uploadImageInput.addEventListener("change", handleUploadImage);
@@ -56,16 +76,18 @@ Validator({
     Validator.isPhoneNumber("#phoneUser", "Số điện thoại không hợp lệ"),
   ],
   onSubmit: async function ({ images, ...rest }) {
+    const formImgPreviews = document.querySelectorAll(".form__image-preview");
     try {
-      await axios.post(enpoin, {
+      await axios.post(endpoint, {
         images: arrImg,
         ...rest,
       });
-      const formImgPreviews = document.querySelectorAll(".form__image-preview");
       formImgPreviews.forEach((item) => item.remove());
       await FuiToast.success("Gửi tố cáo thành công");
     } catch (error) {
       console.log(error);
+      FuiToast.error("Gửi tố cáo thất bại");
+      formImgPreviews.forEach((item) => item.remove());
     }
 
     console.log({ images: arrImg, ...rest }); // Dữ liệu form sau khi xác thực thành công
