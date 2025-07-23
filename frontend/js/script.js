@@ -83,8 +83,19 @@ const modelHTML = `<section class="model">
       </section>`;
 const scammerItems = document.querySelectorAll(".scammer__item");
 const warningHeaders = document.querySelectorAll(".warning__header");
+const endpoint = "https://68803af6f1dcae717b615ab0.mockapi.io/scammers";
+const scammerList = document.querySelector(".scammer__list");
 
-// WARNING
+// === HANDLE FORMAT DATE ===
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  return;
+}
+
+// === WARNING ===
 warningHeaders.forEach((item) =>
   item.addEventListener("click", handleShowDropdown)
 );
@@ -113,7 +124,7 @@ function handleShowDropdown(e) {
   }
 }
 
-// MODEL
+// === MODEL ===
 scammerItems.forEach((item) => item.addEventListener("click", handleShowModel));
 
 function handleShowModel() {
@@ -131,3 +142,32 @@ document.body.addEventListener("click", (e) => {
     document.body.style.overflow = "auto";
   }
 });
+
+// === HANDLE RENDER SCAMMER LIST
+function rederScammer(data) {
+  if (data && data.length > 0) {
+    data.forEach((item) => {
+      const scammerItemHTML = `<li class="scammer__item">
+            <img src="./assets/img/avatar.png" alt="" class="scammer__avatar" />
+            <div class="scammer__info">
+              <h3 class="scammer__name">${item.nameScammer}</h3>
+              <div class="scammer__date">#${item.id}- 15/07/2025</div>
+            </div>
+          </li>`;
+      scammerList.insertAdjacentHTML("afterbegin", scammerItemHTML);
+    });
+  }
+}
+
+// === HANDLE LIST SCAMMER ===
+async function getScammer() {
+  try {
+    const response = await axios.get(endpoint);
+    const data = await response.data;
+    rederScammer(data);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+getScammer();

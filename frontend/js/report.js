@@ -80,6 +80,7 @@ Validator({
     try {
       await axios.post(endpoint, {
         images: arrImg,
+        date: new Date(),
         ...rest,
       });
       formImgPreviews.forEach((item) => item.remove());
