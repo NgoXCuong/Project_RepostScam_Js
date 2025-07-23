@@ -60,6 +60,7 @@
   flex-direction: column;
   gap: 12px;
   flex: 1;
+  position: relative;
 }
 
 .form__title {
@@ -89,12 +90,23 @@
   margin-bottom: 24px;
 }
 
+.form__group-texterea .form-message {
+  top: 10px;
+  right: 12px;
+}
+
 .form__upload-group {
   width: 128px;
   height: 114px;
   border-radius: 8px;
   background-color: var(--bgColor3);
   position: relative;
+}
+
+.form__upload-group .form-message {
+  top: 100%;
+  width: 100%;
+  text-align: center;
 }
 
 .form__upload {

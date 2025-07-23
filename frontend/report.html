@@ -62,7 +62,7 @@
     </section>
 
     <!-- FORM REPORT -->
-    <form action="" class="form-report">
+    <form action="" id="form-report" class="form-report">
       <h2 class="form__heading">Thông tin kẻ lừa đảo</h2>
       <div class="form__group-wrap">
         <div class="form__group">
@@ -76,6 +76,7 @@
             class="form__input"
             placeholder="Nhập tên chủ tài khoản"
           />
+          <p class="form-message"></p>
         </div>
         <div class="form__group">
           <label for="phoneScammer" class="form__title"
@@ -88,6 +89,7 @@
             class="form__input"
             placeholder="Nhập số điện thoại"
           />
+          <p class="form-message"></p>
         </div>
       </div>
       <div class="form__group-wrap">
@@ -102,6 +104,7 @@
             class="form__input"
             placeholder="Nhập số tài khoản"
           />
+          <p class="form-message"></p>
         </div>
         <div class="form__group">
           <label for="bankScammer" class="form__title"
@@ -114,15 +117,17 @@
             class="form__input"
             placeholder="Nhập tên ngân hàng"
           />
+          <p class="form-message"></p>
         </div>
       </div>
-      <div class="form__group">
+      <div class="form__group form__group-texterea">
         <textarea
           name="contentReport"
           id="contentReport"
           class="form__texterea"
           placeholder="Nội dung tố cáo"
         ></textarea>
+        <p class="form-message"></p>
       </div>
       <div class="form__upload-wrap">
         <div class="form__image-preview">
@@ -131,7 +136,7 @@
           </div>
           <img src="./assets/img/NC.png" alt="" class="form__preview-img" />
         </div>
-        <div class="form__upload-group">
+        <div class="form__group form__upload-group">
           <label for="uploadImage" class="form__upload"
             ><input
               type="file"
@@ -149,6 +154,7 @@
             />
             <span class="form__upload-text">Chọn ảnh</span>
           </label>
+          <p class="form-message"></p>
         </div>
       </div>
 
@@ -165,6 +171,7 @@
             class="form__input"
             placeholder="Nhập họ và tên"
           />
+          <p class="form-message"></p>
         </div>
         <div class="form__group">
           <label for="phoneUser" class="form__title"
@@ -177,6 +184,7 @@
             class="form__input"
             placeholder="Nhập số điện thoại"
           />
+          <p class="form-message"></p>
         </div>
       </div>
       <div class="form__action-group">
@@ -210,6 +218,8 @@
     </form>
 
     <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/gh/tuanduong1907/fui-validate@main/fui-validate.js"></script>
     <script src="./js/app.js"></script>
+    <script src="./js/report.js"></script>
   </body>
 </html>

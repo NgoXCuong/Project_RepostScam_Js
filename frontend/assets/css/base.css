@@ -25,6 +25,15 @@ body {
   padding-bottom: 100px;
 }
 
+/* ERROR MESSAGE STYLE */
+.form-message {
+  font-size: 14px;
+  color: var(--redColor);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 /* Circle style */
 .effect-circle1 {
   width: 530px;
