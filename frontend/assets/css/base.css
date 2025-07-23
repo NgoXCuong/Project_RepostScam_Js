@@ -18,6 +18,11 @@ body {
   isolation: isolate;
 }
 
+/* MESSAGE TOAST */
+.fui-toast-body {
+  color: var(--textBtnColor);
+}
+
 .container {
   max-width: 1100px;
   width: 100%;
