@@ -325,7 +325,8 @@ body {
 }
 
 .model__preview-image img {
-  width: 190px;
+  height: 237px;
+  width: 100%;
   border-radius: 8px;
   object-fit: cover;
   cursor: pointer;

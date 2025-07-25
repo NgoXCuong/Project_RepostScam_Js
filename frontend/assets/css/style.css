@@ -118,6 +118,10 @@
   overflow: hidden;
 }
 
+.scammer__item > * {
+  pointer-events: none;
+}
+
 .scammer__item:hover::before {
   left: auto;
   right: 0;
