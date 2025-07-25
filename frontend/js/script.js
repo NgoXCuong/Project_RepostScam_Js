@@ -85,16 +85,25 @@ const scammerItems = document.querySelectorAll(".scammer__item");
 const warningHeaders = document.querySelectorAll(".warning__header");
 const endpoint = "https://68803af6f1dcae717b615ab0.mockapi.io/scammers";
 const scammerList = document.querySelector(".scammer__list");
+const today = document.querySelector(".today");
+const alertScamDesc = document.querySelector(".alert-scam__desc");
 
 // === HANDLE FORMAT DATE ===
 function formatDate(dateString) {
-  const date = new Date(dateString);
+  const date = dateString ? new Date(dateString) : new Date();
   const day = date.getDate();
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
-  return;
+
+  const formatDay = day < 10 ? `0${day}` : day;
+  const formatMonth = month < 10 ? `0${month}` : month;
+
+  return `${formatDay}/${formatMonth}/${year}`;
 }
 
+if (today) {
+  today.textContent = `Hôm nay ${formatDate()}`;
+}
 // === WARNING ===
 warningHeaders.forEach((item) =>
   item.addEventListener("click", handleShowDropdown)
@@ -144,14 +153,25 @@ document.body.addEventListener("click", (e) => {
 });
 
 // === HANDLE RENDER SCAMMER LIST
-function rederScammer(data) {
-  if (data && data.length > 0) {
-    data.forEach((item) => {
+function rederScammerToday(data) {
+  const todayDate = new Date();
+  todayDate.setHours(0, 0, 0, 0);
+  const todayData = data.filter((item) => {
+    const itemDate = new Date(item.date);
+    itemDate.setHours(0, 0, 0, 0);
+    return itemDate.getTime() === todayDate.getTime();
+  });
+  alertScamDesc.textContent = `Có ${todayData.length} cảnh báo`;
+
+  if (todayData && todayData.length > 0) {
+    todayData.forEach((item) => {
       const scammerItemHTML = `<li class="scammer__item">
             <img src="./assets/img/avatar.png" alt="" class="scammer__avatar" />
             <div class="scammer__info">
               <h3 class="scammer__name">${item.nameScammer}</h3>
-              <div class="scammer__date">#${item.id}- 15/07/2025</div>
+              <div class="scammer__date">#${item.id}- ${formatDate(
+        item.date
+      )}</div>
             </div>
           </li>`;
       scammerList.insertAdjacentHTML("afterbegin", scammerItemHTML);
@@ -164,8 +184,7 @@ async function getScammer() {
   try {
     const response = await axios.get(endpoint);
     const data = await response.data;
-    rederScammer(data);
-    console.log(data);
+    rederScammerToday(data);
   } catch (error) {
     console.error(error);
   }
