@@ -4,6 +4,7 @@ const scammerList = document.querySelector(".scammer__list");
 const today = document.querySelector(".today");
 const alertScamDesc = document.querySelector(".alert-scam__desc");
 let scammerData = [];
+const scammnerListAll = document.getElementById("scammerListAll");
 
 // === HANDLE FORMAT DATE ===
 function formatDate(dateString) {
@@ -159,7 +160,7 @@ document.body.addEventListener("click", (e) => {
   }
 });
 
-// === HANDLE RENDER SCAMMER LIST
+// === HANDLE RENDER SCAMMER LIST TODAY
 function rederScammerToday(data) {
   const todayDate = new Date();
   todayDate.setHours(0, 0, 0, 0);
@@ -186,14 +187,37 @@ function rederScammerToday(data) {
   }
 }
 
+// === HANDLE RENDER SCAMMER LIST
+function rederScammerAll(data) {
+  alertScamDesc.textContent = `Có ${todayData.length} cảnh báo`;
+
+  if (data && data.length > 0) {
+    data.forEach((item) => {
+      const scammerItemHTML = `<li class="scammer__item" data-id = "${item.id}">
+            <img src="./assets/img/avatar.png" alt="" class="scammer__avatar" />
+            <div class="scammer__info">
+              <h3 class="scammer__name">${item.nameScammer}</h3>
+              <div class="scammer__date">#${item.id}- ${formatDate(
+        item.date
+      )}</div>
+            </div>
+          </li>`;
+      scammnerListAll.insertAdjacentHTML("afterbegin", scammerItemHTML);
+    });
+  }
+}
+
 // === HANDLE LIST SCAMMER ===
 async function getScammer() {
   try {
     const response = await axios.get(endpoint);
     scammerData = await response.data;
     rederScammerToday(scammerData);
+    rederScammerAll(scammerData);
   } catch (error) {
     console.error(error);
   }
 }
 getScammer();
+
+// =============== SCAMMER ===============
