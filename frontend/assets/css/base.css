@@ -178,7 +178,7 @@ body {
   justify-content: center;
   align-items: center;
   isolation: isolate;
-  z-index: 999;
+  z-index: 50;
   animation: fadeIn ease 0.5s;
 }
 
@@ -335,4 +335,10 @@ body {
 
 .model__preview-image img:hover {
   opacity: 0.5;
+}
+
+/* Light Gallery Style */
+.lg-backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
 }

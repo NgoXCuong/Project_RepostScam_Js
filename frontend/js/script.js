@@ -55,8 +55,10 @@ function handleShowDropdown(e) {
 function handleShowModel(id) {
   const scammer = scammerData.find((item) => item.id === id);
   const imgListHTML = scammer.images
-    .map((item) => {
-      return `<img src="${item}" alt="" />`;
+    .map((item, index) => {
+      return `<a href ="${item}"><img src="${item}" alt="Ảnh bằng chứng của ${
+        scammer.nameScammer
+      } ${index + 1}" /></a>`;
     })
     .join("");
   console.log(scammer);
@@ -139,6 +141,9 @@ function handleShowModel(id) {
       </section>`;
   document.body.insertAdjacentHTML("afterbegin", modelHTML);
   document.body.style.overflow = "hidden";
+  lightGallery(document.querySelector(".model__preview-image"), {
+    plugins: [lgThumbnail],
+  });
 }
 
 document.body.addEventListener("click", (e) => {
