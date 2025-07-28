@@ -5,6 +5,8 @@ const today = document.querySelector(".today");
 const alertScamDesc = document.querySelector(".alert-scam__desc");
 let scammerData = [];
 const scammnerListAll = document.getElementById("scammerListAll");
+const scammerListWrap = document.querySelector(".scammer__list-wrap");
+const loading = document.querySelector(".loading");
 
 // === HANDLE FORMAT DATE ===
 function formatDate(dateString) {
@@ -184,12 +186,17 @@ function rederScammerToday(data) {
           </li>`;
       scammerList.insertAdjacentHTML("afterbegin", scammerItemHTML);
     });
+  } else {
+    scammerListWrap.innerHTML = `<div class = "not-found">
+      <img src =  "./assets/img/not-found.svg" />
+      <span>Hiện tại không có scammer nào!!!</span>
+    </div>`;
   }
 }
 
 // === HANDLE RENDER SCAMMER LIST
 function rederScammerAll(data) {
-  alertScamDesc.textContent = `Có ${todayData.length} cảnh báo`;
+  // alertScamDesc.textContent = `Có ${todayData.length} cảnh báo`;
 
   if (data && data.length > 0) {
     data.forEach((item) => {
@@ -209,14 +216,23 @@ function rederScammerAll(data) {
 
 // === HANDLE LIST SCAMMER ===
 async function getScammer() {
-  try {
-    const response = await axios.get(endpoint);
-    scammerData = await response.data;
-    rederScammerToday(scammerData);
-    rederScammerAll(scammerData);
-  } catch (error) {
-    console.error(error);
-  }
+  loading.classList.add("active");
+  setTimeout(async () => {
+    try {
+      loading.classList.remove("active");
+      const response = await axios.get(endpoint);
+      scammerData = await response.data;
+      if (scammnerListAll) rederScammerAll(scammerData);
+      else rederScammerToday(scammerData);
+    } catch (error) {
+      loading.classList.remove("active");
+      console.error(error);
+      scammerListWrap.innerHTML = `<div class = "not-found">
+      <img src =  "./assets/img/not-found.svg" />
+      <span>Không có dữ liệu từ database!!!</span>
+    </div>`;
+    }
+  }, 1000);
 }
 getScammer();
 
