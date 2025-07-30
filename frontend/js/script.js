@@ -5,6 +5,7 @@ let scammerData = [];
 const scammerListWrap = document.querySelector(".scammer__list-wrap");
 const loading = document.querySelector(".loading");
 const alertScamDesc = document.querySelector(".alert-scam__desc");
+const formSearch = document.querySelector(".form-search");
 
 // === Format Date Title ===
 alertScamTitle.textContent = `Hôm nay ${formatDate()}`;
@@ -92,3 +93,10 @@ async function getScammer() {
   }, 1000);
 }
 getScammer();
+
+// === Handle Search ===
+formSearch.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const inputSearch = e.target.querySelector(".form-search__input");
+  window.location.href = `./scammers.html?search_query=${inputSearch.value}`;
+});

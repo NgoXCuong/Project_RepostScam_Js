@@ -3,6 +3,11 @@ const scammerList = document.querySelector(".scammer__list");
 const loading = document.querySelector(".loading");
 let scammerData = [];
 const scammerListWrap = document.querySelector(".scammer__list-wrap");
+const formSearch = document.querySelector(".form-search");
+const urlParams = new URLSearchParams(window.location.search);
+const query = urlParams.get("search_query");
+
+console.log(query);
 
 // === Handle Show Model ===
 document.body.addEventListener("click", (e) => {
@@ -36,6 +41,14 @@ async function getScammer() {
       loading.classList.remove("active");
       const response = await axios.get(endpoint);
       scammerData = await response.data;
+      if (query) {
+        const filterData = scammerData.filter((item) =>
+          item.numberScammer.includes(query)
+        );
+        rederScammerAll(filterData);
+      } else {
+        rederScammerAll(scammerData);
+      }
       rederScammerAll(scammerData);
     } catch (error) {
       loading.classList.remove("active");
@@ -48,3 +61,10 @@ async function getScammer() {
   }, 1000);
 }
 getScammer();
+
+// === Handle Search ===
+formSearch.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const inputSearch = e.target.querySelector(".form-search__input");
+  window.location.href = `./scammers.html?search_query=${inputSearch.value}`;
+});
