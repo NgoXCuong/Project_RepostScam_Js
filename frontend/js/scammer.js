@@ -6,6 +6,7 @@ const scammerListWrap = document.querySelector(".scammer__list-wrap");
 const formSearch = document.querySelector(".form-search");
 const urlParams = new URLSearchParams(window.location.search);
 const query = urlParams.get("search_query");
+const inputSearch = document.querySelector(".form-search__input");
 
 console.log(query);
 
@@ -42,14 +43,17 @@ async function getScammer() {
       const response = await axios.get(endpoint);
       scammerData = await response.data;
       if (query) {
-        const filterData = scammerData.filter((item) =>
-          item.numberScammer.includes(query)
+        const filterData = scammerData.filter(
+          (item) =>
+            item.numberScammer.includes(query.trim()) ||
+            item.phoneScammer.includes(query.trim()) ||
+            removeTextNoMark(item.nameScammer).includes(removeTextNoMark(query))
         );
         rederScammerAll(filterData);
       } else {
         rederScammerAll(scammerData);
       }
-      rederScammerAll(scammerData);
+      // rederScammerAll(scammerData);
     } catch (error) {
       loading.classList.remove("active");
       console.error(error);
@@ -63,8 +67,9 @@ async function getScammer() {
 getScammer();
 
 // === Handle Search ===
+inputSearch.value = query;
 formSearch.addEventListener("submit", (e) => {
   e.preventDefault();
-  const inputSearch = e.target.querySelector(".form-search__input");
-  window.location.href = `./scammers.html?search_query=${inputSearch.value}`;
+  urlParams.set("search_query", inputSearch.value);
+  window.location.search = urlParams.toString();
 });
