@@ -21,7 +21,7 @@
   max-width: 664px;
   width: 100%;
   margin-inline: auto;
-  margin-top: 96px;
+  padding-top: 96px;
 }
 
 .content__heading {
@@ -221,4 +221,41 @@
 .warning__header-icon.active {
   transform: rotate(90deg);
   transition: transform ease 0.3s;
+}
+
+/* ==== Reposive Style ===*/
+@media only screen and (max-width: 1023px) {
+  .content {
+    padding-top: 26px;
+    max-width: 100%;
+  }
+
+  .content__heading {
+    font-size: 26px;
+    font-weight: 900;
+  }
+
+  .content__desc {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  .form-search {
+    margin-top: 16px;
+  }
+
+  .alert-scam {
+    margin-top: 40px;
+  }
+
+  .scammer__list {
+    grid-template-columns: 1fr;
+  }
+  .scammer__list-wrap {
+    padding: 16px;
+  }
+
+  .warning {
+    margin-top: 56px;
+  }
 }

@@ -6,9 +6,9 @@ window.addEventListener("scroll", () => {
   const totalHeaderHeight = headerHeight + marginTopHeader;
   if (window.scrollY > totalHeaderHeight) {
     header.classList.add("fixed");
-    document.body.style.paddingTop = `${totalHeaderHeight}px`;
+    document.body.classList.add("active");
   } else {
     header.classList.remove("fixed");
-    document.body.style.paddingTop = 0;
+    document.body.classList.remove("active");
   }
 });
