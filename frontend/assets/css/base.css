@@ -20,6 +20,15 @@ body {
   isolation: isolate;
 }
 
+.text-single {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
 /* MESSAGE TOAST */
 .fui-toast-body {
   color: var(--textBtnColor);
@@ -141,7 +150,7 @@ body {
 .header__nav-link {
   color: var(--subTextColor);
   font-weight: 500;
-  transition: ease 0.2s;
+  transition: linear 0.2s;
   letter-spacing: 1.5%;
   text-decoration: none;
 }
@@ -188,7 +197,7 @@ body {
   align-items: center;
   isolation: isolate;
   z-index: 50;
-  animation: fadeIn ease 0.5s;
+  animation: fadeIn linear 0.5s;
 }
 
 @keyframes fadeIn {
@@ -217,7 +226,7 @@ body {
   background-color: var(--bgColor2);
   border-radius: 16px;
   backdrop-filter: blur(70px);
-  animation: fadeDown ease 0.5s;
+  animation: fadeDown linear 0.5s;
 }
 
 @keyframes fadeDown {
@@ -252,7 +261,7 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: ease 0.2s;
+  transition: linear 0.2s;
 }
 
 .model__header-close > * {
@@ -308,10 +317,12 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  gap: 20px;
 }
 
 .model__detail-title {
   color: var(--subTextColor);
+  flex-shrink: 0;
 }
 
 .model__detail-text {
@@ -339,7 +350,7 @@ body {
   border-radius: 8px;
   object-fit: cover;
   cursor: pointer;
-  transition: ease 0.2s;
+  transition: linear 0.2s;
 }
 
 .model__preview-image img:hover {
@@ -469,6 +480,7 @@ body {
   .container {
     margin-top: var(--headerHeight);
     max-width: 100%;
+    padding-top: 26px;
   }
   .header {
     position: fixed;
@@ -532,8 +544,12 @@ body {
   }
 
   .title {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 800;
+    color: transparent;
+    background: var(--gradientColor);
+    background-clip: text;
+    -webkit-background-clip: text;
   }
 
   .model__content {
@@ -568,6 +584,6 @@ body {
     margin-top: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    animation: fadeDownHeader linear 0.3s;
+    animation: fadeDownHeader linear 0.5s;
   }
 }

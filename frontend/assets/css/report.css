@@ -10,7 +10,7 @@
 .breadcrumb__link {
   color: var(--subTextColor);
   font-size: 14px;
-  transition: ease 0.2s;
+  transition: linear 0.2s;
   text-decoration: none;
 }
 
@@ -37,12 +37,6 @@
 
 .form__heading {
   display: flex;
-  font-size: 30px;
-  font-weight: 800;
-  color: transparent;
-  background: var(--gradientColor);
-  background-clip: text;
-  -webkit-background-clip: text;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;

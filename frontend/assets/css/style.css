@@ -66,6 +66,10 @@
   flex-shrink: 0;
 }
 
+.form-search__btn i {
+  display: none;
+}
+
 /* SCAMMER */
 .alert-scam {
   margin-top: 138px;
@@ -211,7 +215,7 @@
   color: var(--subTextColor);
   height: 0;
   overflow: hidden;
-  transition: ease 0.2s;
+  transition: linear 0.2s;
 }
 
 .warning__content.active {
@@ -220,13 +224,13 @@
 
 .warning__header-icon.active {
   transform: rotate(90deg);
-  transition: transform ease 0.3s;
+  transition: transform linear 0.3s;
 }
 
 /* ==== Reposive Style ===*/
 @media only screen and (max-width: 1023px) {
   .content {
-    padding-top: 26px;
+    padding-top: 0;
     max-width: 100%;
   }
 
@@ -261,6 +265,20 @@
 
   .warning {
     margin-top: 56px;
+  }
+}
+
+@media only screen and (max-width: 739px) {
+  .form-search__btn i {
+    display: block;
+  }
+
+  .form-search__btn span {
+    display: none;
+  }
+
+  .form-search {
+    max-width: 100%;
   }
 }
 

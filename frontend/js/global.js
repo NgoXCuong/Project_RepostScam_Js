@@ -50,17 +50,21 @@ function renderModelHTML(itemData) {
               </div>
               <div class="model__detail">
                 <span class="model__detail-title">Số điện thoại</span>
-                <span class="model__detail-text">${itemData.phoneScammer}</span>
+                <span class="model__detail-text text-single">${
+                  itemData.phoneScammer
+                }</span>
               </div>
               <div class="model__detail">
                 <span class="model__detail-title">Số tài khoản</span>
-                <span class="model__detail-text">${
+                <span class="model__detail-text  text-single">${
                   itemData.numberScammer
                 }</span>
               </div>
               <div class="model__detail">
                 <span class="model__detail-title">Ngân hàng</span>
-                <span class="model__detail-text">${itemData.bankScammer}</span>
+                <span class="model__detail-text text-single">${
+                  itemData.bankScammer
+                }</span>
               </div>
             </div>
             <div class="model__group">
@@ -79,11 +83,13 @@ function renderModelHTML(itemData) {
               </div>
               <div class="model__detail">
                 <span class="model__detail-title">Trạng thái</span>
-                <span class="model__detail-text">${itemData.option}</span>
+                <span class="model__detail-text text-single">${
+                  itemData.option
+                }</span>
               </div>
               <div class="model__detail">
                 <span class="model__detail-title">Liên hệ</span>
-                <span class="model__detail-text">${
+                <span class="model__detail-text text-single">${
                   itemData.numberScammer
                 }</span>
               </div>
@@ -120,7 +126,7 @@ function renderItemHTML(itemData) {
   return `<li class="scammer__item" data-id = "${itemData.id}">
             <img src="./assets/img/avatar.png" alt="" class="scammer__avatar" />
             <div class="scammer__info">
-              <h3 class="scammer__name">${itemData.nameScammer}</h3>
+              <h3 class="scammer__name text-single">${itemData.nameScammer}</h3>
               <div class="scammer__date">#${itemData.id}- ${formatDate(
     itemData.date
   )}</div>

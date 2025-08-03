@@ -5,8 +5,3 @@
 .alert-scam__custom {
   margin-top: 60px;
 }
-@media only screen and (max-width: 1023px) {
-  .search {
-    margin-top: 150px;
-  }
-}
