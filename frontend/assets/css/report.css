@@ -195,3 +195,48 @@
   margin-inline: auto;
   display: block;
 }
+
+/* Reposive Style */
+@media only screen and (max-width: 1023px) {
+  .breadcrumb {
+    margin-top: 100px;
+    padding-top: 16px;
+    margin-inline: 16px;
+  }
+
+  .form-report {
+    max-width: 100%;
+    margin-top: 16px;
+    padding-inline: 16px;
+    padding-bottom: 40px;
+  }
+
+  .form__heading {
+    font-size: 26px;
+  }
+
+  .form__group-wrap {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .form__upload-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form__image-preview,
+  .form__upload-group {
+    max-width: 100%;
+    width: 100%;
+    height: 120px;
+  }
+}
+
+@media only screen and (max-width: 739px) {
+  .form__action-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}

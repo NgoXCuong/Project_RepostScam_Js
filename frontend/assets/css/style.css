@@ -230,6 +230,10 @@
     max-width: 100%;
   }
 
+  .imgmage-fixed {
+    top: 10%;
+  }
+
   .content__heading {
     font-size: 26px;
     font-weight: 900;
@@ -257,5 +261,15 @@
 
   .warning {
     margin-top: 56px;
+  }
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+  .content {
+    max-width: 500px;
+  }
+
+  .scammer__list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

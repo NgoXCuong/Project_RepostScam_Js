@@ -466,13 +466,10 @@ body {
 
 /* === Reposive Style */
 @media only screen and (max-width: 1023px) {
-  .btn {
-    padding: 8px 16px;
-  }
   .container {
-    padding-top: var(--headerHeight);
+    margin-top: var(--headerHeight);
+    max-width: 100%;
   }
-
   .header {
     position: fixed;
     top: 0;
@@ -518,11 +515,20 @@ body {
   .header__close-menu {
     top: 24px;
   }
-
   .header__btn {
     position: static;
     width: 50%;
     text-align: center;
+  }
+}
+
+@media only screen and (max-width: 739px) {
+  .effect-circle1 {
+    display: none;
+  }
+
+  .btn {
+    padding: 8px 16px;
   }
 
   .title {
@@ -541,6 +547,10 @@ body {
 
   .model__preview-image {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .not-found img {
+    height: 150px;
   }
 }
 
