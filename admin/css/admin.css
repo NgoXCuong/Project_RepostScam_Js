@@ -1,0 +1,50 @@
+.container-admin {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.siderbar {
+  width: 100%;
+  max-width: 320px;
+  background-color: var(--bgColor2);
+  padding: 20px;
+  border-radius: 12px;
+  height: calc(100vh - 40px);
+}
+
+.siderbar__logo {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-bottom: 40px;
+  color: var(--textColor);
+}
+
+.siderbar__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+}
+
+.siderbar__link {
+  color: var(--textColor);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 18px;
+  color: var(--subTextColor);
+  text-decoration: none;
+  transition: linear 0.2s;
+}
+
+.siderbar__link:hover {
+  color: var(--textColor);
+}
+
+.siderbar__link-icon {
+  font-size: 18px;
+  display: inline-block;
+  width: 20px;
+}
