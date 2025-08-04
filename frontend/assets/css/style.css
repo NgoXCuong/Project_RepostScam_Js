@@ -40,36 +40,6 @@
   text-align: center;
 }
 
-.form-search {
-  max-width: 500px;
-  width: 100%;
-  border-radius: 16px;
-  /* background-color: var(--bgColor3); */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 48px;
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  margin-inline: auto;
-}
-
-.form-search__input {
-  flex: 1;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  padding-left: 19px;
-  color: var(--textColor);
-}
-
-.form-search__btn {
-  flex-shrink: 0;
-}
-
-.form-search__btn i {
-  display: none;
-}
-
 /* SCAMMER */
 .alert-scam {
   margin-top: 138px;
@@ -248,10 +218,6 @@
     margin-top: 8px;
   }
 
-  .form-search {
-    margin-top: 16px;
-  }
-
   .alert-scam {
     margin-top: 40px;
   }
@@ -265,20 +231,6 @@
 
   .warning {
     margin-top: 56px;
-  }
-}
-
-@media only screen and (max-width: 739px) {
-  .form-search__btn i {
-    display: block;
-  }
-
-  .form-search__btn span {
-    display: none;
-  }
-
-  .form-search {
-    max-width: 100%;
   }
 }
 

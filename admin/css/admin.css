@@ -4,6 +4,8 @@
   padding: 20px;
 }
 
+/* === SIDERBAR === */
+
 .siderbar {
   width: 100%;
   max-width: 320px;
@@ -39,6 +41,10 @@
   transition: linear 0.2s;
 }
 
+.siderbar__link.active {
+  color: var(--textColor);
+}
+
 .siderbar__link:hover {
   color: var(--textColor);
 }
@@ -47,4 +53,118 @@
   font-size: 18px;
   display: inline-block;
   width: 20px;
+}
+
+/* === DASHBOARD HEADER === */
+.dashboard {
+  flex: 1;
+}
+
+.header-admin {
+  padding: 16px;
+  border-radius: 12px;
+  background-color: var(--bgColor2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-admin__title {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.header-admin__info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+/* dashboard content */
+.dashboard-content {
+  background-color: var(--bgColor2);
+  margin-top: 20px;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.dashboard__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-search__admin {
+  max-width: 100%;
+  margin-right: 0;
+  margin-top: 0;
+}
+
+.dashboard__top-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashboard__top-total {
+  font-size: 16px;
+  color: var(--subTextColor);
+  font-weight: 600;
+}
+
+/* === TABLE STYLE === */
+.table-wrap {
+  font-size: 14px;
+}
+
+.dashboard-table-wrap {
+  margin-top: 50px;
+}
+
+.dashboard-table__header {
+  background-color: var(--bgColor3);
+}
+
+.dashboard-table {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  border-spacing: 0;
+}
+
+/* ********************** End table wrap ********************** */
+/* ********************** Table common ********************** */
+
+table thead th {
+  text-align: left;
+}
+
+table th,
+table td {
+  padding: 16px;
+}
+table td {
+  vertical-align: middle;
+}
+
+/* ********************** End table common ********************** */
+
+.table-action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.table-action__icon {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.table-action__remove {
+  color: var(--redColor);
+}
+
+.add-warning__btn {
+  margin-left: 20px;
 }
