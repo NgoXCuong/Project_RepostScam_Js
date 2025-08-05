@@ -42,8 +42,12 @@ async function getScammer() {
       loading.classList.remove("active");
       const response = await axios.get(endpoint);
       scammerData = await response.data;
+      const approveScammerData = scammerData.filter(
+        (item) => item.appprove === true
+      );
+      console.log(approveScammerData);
       if (query) {
-        const filterData = scammerData.filter(
+        const filterData = approveScammerData.filter(
           (item) =>
             item.numberScammer.includes(query.trim()) ||
             item.phoneScammer.includes(query.trim()) ||
@@ -51,9 +55,9 @@ async function getScammer() {
         );
         rederScammerAll(filterData);
       } else {
-        rederScammerAll(scammerData);
+        rederScammerAll(approveScammerData);
       }
-      // rederScammerAll(scammerData);
+      console.log(rederScammerAll(approveScammerData));
     } catch (error) {
       loading.classList.remove("active");
       console.error(error);

@@ -81,7 +81,10 @@ async function getScammer() {
       loading.classList.remove("active");
       const response = await axios.get(endpoint);
       scammerData = await response.data;
-      rederScammerToday(scammerData);
+      const approveScammerData = scammerData.filter(
+        (item) => item.approve === true
+      );
+      rederScammerToday(approveScammerData);
     } catch (error) {
       loading.classList.remove("active");
       console.error(error);

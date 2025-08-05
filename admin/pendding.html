@@ -6,6 +6,28 @@
     <title>Document</title>
 
     <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <!--  -->
+
+    <!-- Thu vien LightGallery -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/css/lightgallery.min.css"
+      integrity="sha512-QMCloGTsG2vNSnHcsxYTapI6pFQNnUP6yNizuLL5Wh3ha6AraI6HrJ3ABBaw6SIUHqlSTPQDs/SydiR98oTeaQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/css/lg-thumbnail.min.css"
+      integrity="sha512-rKuOh3xlF/027KUPuMok0ESsZ2zWPRzkniD3n5zZKCAtbiVkYw66DR4KtVAGf8dLPLr5DdyQs05BlSmEyXctkQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
@@ -112,30 +134,27 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Nguyên Van A</td>
-                  <td>231312423</td>
-                  <td>Nhi Bank</td>
-                  <td>432546567</td>
-                  <td>NGÔ XUAN CƯỜNG</td>
-                  <td>26/06/2025</td>
-                  <td class="table-action">
-                    <span class="table-action__icon table-action__view">
-                      <i class="fa-solid fa-eye"> </i
-                    ></span>
-                    <span class="table-action__icon table-action__remove">
-                      <i class="fa-solid fa-trash"></i
-                    ></span>
-                  </td>
-                </tr>
-              </tbody>
+              <tbody class="dashboard__table-body"></tbody>
             </table>
           </div>
         </div>
       </section>
     </div>
-    <script src="./js/script.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/lightgallery.min.js"
+      integrity="sha512-n02TbYimj64qb98ed5WwkNiSw/i9Xlvv4Ehvhg0jLp3qMAMWCYUHbOMbppZ0vimtyiyw9NqNqxUZC4hq86f4aQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/plugins/thumbnail/lg-thumbnail.min.js"
+      integrity="sha512-jZxB8WysJ6S6e4Hz5IZpAzR1WiflBl0hBxriHGlLkUN32T18+rD1aLNifa1KTll/zx8lIfWVP1NqEjHi/Khy5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="../frontend/js/global.js"></script>
+    <script src="./js/penddiing.js"></script>
   </body>
 </html>
