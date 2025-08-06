@@ -36,7 +36,7 @@ function renderModelHTML(itemData) {
               <div class="model__profile">
                 <div class="model__profile-avatar">
                   <img
-                    src="./assets/img/avatar.png"
+                    src="https://i.ibb.co/d0fDNg5z/avatar.png"
                     alt=""
                     style="width: 40px; height: 40px"
                   />
@@ -71,7 +71,7 @@ function renderModelHTML(itemData) {
               <div class="model__profile">
                 <div class="model__profile-avatar">
                   <img
-                    src="./assets/img/avatar.png"
+                    src="https://i.ibb.co/d0fDNg5z/avatar.png"
                     alt=""
                     style="width: 40xp; height: 40px"
                   />

@@ -161,6 +161,10 @@ table td {
   font-size: 18px;
 }
 
+.table-action__icon > * {
+  pointer-events: none;
+}
+
 .table-action__remove {
   color: var(--redColor);
 }

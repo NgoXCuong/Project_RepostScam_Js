@@ -5,7 +5,9 @@ const dashboardTableWrap = document.querySelector(".dashboard-table-wrap");
 
 // === HANDLE SCAMMER PENDDING ===
 function handleRenderScammerApprove(item) {
-  const tableBodyItemHTML = `<tr class = "dashboard__table-item" >
+  const tableBodyItemHTML = `<tr class = "dashboard__table-bodyItem" data-id = "${
+    item.id
+  }" >
                   <td>#${item.id}</td>
                   <td>${item.nameScammer}</td>
                   <td>${item.phoneScammer}</td>
@@ -29,7 +31,7 @@ function handleRenderScammerApprove(item) {
 async function handleGetScammerApprove() {
   try {
     const response = await axios.get(endpoint);
-    const scammerData = await response.data;
+    scammerData = await response.data;
     const penddingScammerData = scammerData.filter(
       (item) => item.approve === true
     );
@@ -49,3 +51,18 @@ async function handleGetScammerApprove() {
 }
 
 handleGetScammerApprove();
+
+// === handle view scammer ===
+document.body.addEventListener("click", (e) => {
+  const model = e.target.closest(".model");
+  if (e.target.matches(".table-action__view")) {
+    console.log(e.target.closest(".dashboard__table-bodyItem"));
+    const scammerItem = e.target.closest(".dashboard__table-bodyItem");
+    handleShowModel(scammerItem.dataset.id);
+  } else if (
+    e.target.matches(".model__header-close") ||
+    e.target.matches(".model__overlay")
+  ) {
+    model.remove();
+  }
+});
