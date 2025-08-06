@@ -135,9 +135,16 @@ function renderItemHTML(itemData) {
 }
 
 // === Render Not Found HTML ===
-function renderNotFound(message = "Hiện tại không có scammer nào!!!") {
+function renderNotFound(
+  message = "Hiện tại không có scammer nào!!!",
+  admin = false
+) {
   return `<div class = "not-found">
-      <img src =  "./assets/img/not-found.svg" />
+      <img src =  "${
+        admin === false
+          ? "./assets/img/not-found.svg"
+          : "../frontend/assets/img/not-found.svg"
+      }"/>
       <span>${message}</span>
     </div>`;
 }

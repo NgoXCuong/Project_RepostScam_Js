@@ -1,8 +1,10 @@
 let scammerData = [];
 const dashboardTableBody = document.querySelector(".dashboard__table-body");
+const dashboardTopTotal = document.querySelector(".dashboard__top-total");
+const dashboardTableWrap = document.querySelector(".dashboard-table-wrap");
 
 // === HANDLE SCAMMER PENDDING ===
-function handleScammerPendding(item) {
+function handleRenderScammerApprove(item) {
   const tableBodyItemHTML = `<tr class = "dashboard__table-item" >
                   <td>#${item.id}</td>
                   <td>${item.nameScammer}</td>
@@ -24,16 +26,26 @@ function handleScammerPendding(item) {
 }
 
 // === HANDLE GET SCAMMER PENDDING ===
-async function handleGetScammerPendding() {
-  const response = await axios.get(endpoint);
-  const scammerData = await response.data;
-  const penddingScammerData = scammerData.filter(
-    (item) => item.approve === false
-  );
+async function handleGetScammerApprove() {
+  try {
+    const response = await axios.get(endpoint);
+    const scammerData = await response.data;
+    const penddingScammerData = scammerData.filter(
+      (item) => item.approve === true
+    );
+    dashboardTopTotal.textContent = `(Có ${penddingScammerData.length} đơn)`;
 
-  penddingScammerData.forEach((item) => {
-    handleGetScammerPendding(item);
-  });
+    if (penddingScammerData?.length > 0) {
+      penddingScammerData.forEach((item) => {
+        handleRenderScammerApprove(item);
+      });
+    } else {
+      dashboardTableWrap.insertAdjacentHTML(
+        "beforeend",
+        renderNotFound("Không có đơn nào!!!", true)
+      );
+    }
+  } catch (error) {}
 }
 
-handleGetScammerPendding();
+handleGetScammerApprove();

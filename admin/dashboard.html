@@ -100,7 +100,7 @@
           <div class="dashboard__top">
             <div class="dashboard__top-heading">
               <h2 class="dashboard__top-title">Danh sách scammer</h2>
-              <p class="dashboard__top-total">(Có 26 đơn tố cáo)</p>
+              <p class="dashboard__top-total">(Có 0 đơn tố cáo)</p>
             </div>
             <div class="dashboard__top-search">
               <form table-action="" class="form-search form-search__admin">
@@ -133,8 +133,8 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
+              <tbody class="dashboard__table-body">
+                <!-- <tr>
                   <td>1</td>
                   <td>Nguyên Van A</td>
                   <td>231312423</td>
@@ -150,13 +150,28 @@
                       <i class="fa-solid fa-trash"></i
                     ></span>
                   </td>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
           </div>
         </div>
       </section>
     </div>
-    <script src="./js/script.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/lightgallery.min.js"
+      integrity="sha512-n02TbYimj64qb98ed5WwkNiSw/i9Xlvv4Ehvhg0jLp3qMAMWCYUHbOMbppZ0vimtyiyw9NqNqxUZC4hq86f4aQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/plugins/thumbnail/lg-thumbnail.min.js"
+      integrity="sha512-jZxB8WysJ6S6e4Hz5IZpAzR1WiflBl0hBxriHGlLkUN32T18+rD1aLNifa1KTll/zx8lIfWVP1NqEjHi/Khy5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="../frontend/js/global.js"></script>
+    <script src="./js/dashboard.js"></script>
   </body>
 </html>
