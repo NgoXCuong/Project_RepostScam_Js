@@ -29,6 +29,8 @@ function handleRenderScammerApprove(item) {
 
 // === HANDLE GET SCAMMER PENDDING ===
 async function handleGetScammerApprove() {
+  dashboardTableBody.innerHTML = ``;
+
   try {
     const response = await axios.get(endpoint);
     scammerData = await response.data;
@@ -64,5 +66,40 @@ document.body.addEventListener("click", (e) => {
     e.target.matches(".model__overlay")
   ) {
     model.remove();
+  }
+});
+
+// ===FUNCION HANDLE REMOVE ===
+async function handleRemove(id) {
+  try {
+    await Swal.fire({
+      title: "Bạn có chắc chắn muốn xóa?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#db2828",
+      cancelButtonColor: "#ccc",
+      confirmButtonText: "Có",
+      cancelButtonText: "Hủy",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await axios.delete(`${endpoint}/${id}`);
+        await handleGetScammerApprove();
+
+        console.log(res.data);
+        Swal.fire({
+          title: "Đã xóa!",
+          text: "Bạn đã xóa thành công.",
+          icon: "success",
+        });
+      }
+    });
+  } catch (error) {}
+}
+
+// === HANDLE REMOVE SCAMMER ===
+document.body.addEventListener("click", (e) => {
+  if (e.target.matches(".table-action__remove")) {
+    const scammerItem = e.target.closest(".dashboard__table-bodyItem");
+    handleRemove(scammerItem.dataset.id);
   }
 });
